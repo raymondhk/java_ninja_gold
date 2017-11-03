@@ -71,7 +71,14 @@
 				<h3>Activites:</h3>
 				<div class="message_box">
 				<c:forEach items="${messages}" var="message">
-					<p><c:out value="${message}"/></p>
+				<c:choose>
+					<c:when test="${message.contains('lost') || message.contains('back')}">
+						<p class="red"><c:out value="${message}"/></p>
+					</c:when>
+					<c:otherwise>
+						<p class="green"><c:out value="${message}"/></p>
+					</c:otherwise>
+				</c:choose>
 				</c:forEach>
 				</div>
 			</div>
